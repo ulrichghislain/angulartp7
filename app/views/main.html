@@ -1,0 +1,11 @@
+<h3>OpowerApp</h3><br>
+  <form name="outerForm" class="tab-form-demo">
+    <uib-tabset active="activeJustified" justified="true">
+        <uib-tab ng-repeat="tab in Tabs"
+                index="tab.id"
+                heading="{{tab.heading}}"
+                active="tab.active">
+            <div ng-include="tab.templateUrl"></div>
+        </uib-tab>
+    </uib-tabset>
+  </form>

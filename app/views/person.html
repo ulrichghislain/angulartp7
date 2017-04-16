@@ -1,0 +1,55 @@
+<form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Nom:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="name" required ng-model="person.surname">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="firstname">Prenom:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="firstname" required ng-model="person.forename">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="mail">Mail:</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" id="mail" required ng-model="person.mail">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default" ng-click="submit()">Submit</button>
+        <img ng-show="loading" ng-src="images/loader.gif"> {{serverResponse}}
+      </div>
+    </div>
+</form>
+
+<table class="table table-bordered table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat = "pers in persons">
+        <td>{{pers.id}}</td>
+        <td>{{pers.forename}}</td>
+        <td>{{pers.surname}}</td>
+        <td>{{pers.mail}}</td>
+        <td>
+            <button data-original-title="cliquez sur le bouton SUBMIT après l'édition" data-toggle="tooltip" data-placement="top" title="cliquez sur le bouton SUBMIT après l'édition" type="button" class="btn btn-default" ng-click="edit(pers)">
+                <a href=""><span class="glyphicon glyphicon-pencil"></span></a> Edit
+            </button>
+        </td>
+        <td>
+            <button type="button" class="btn btn-default" ng-click="remove(pers)">
+                <a href=""><span class="glyphicon glyphicon-trash"></span></a> Remove
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
